@@ -21,7 +21,6 @@ class LessonsController extends ApiController
         $this->lessonTransformer = $lessonTransformer;
     }
 
-
     /**
      * Display a listing of the resource.
      *
@@ -37,18 +36,6 @@ class LessonsController extends ApiController
 
     }
 
-    
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    
     /**
      * Store a newly created resource in storage.
      *
@@ -71,7 +58,6 @@ class LessonsController extends ApiController
         return $this->respondLessonCreated('lesson created');
     }
 
-    
     /**
      * Display the specified resource.
      *
