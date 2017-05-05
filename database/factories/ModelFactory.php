@@ -23,11 +23,30 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     ];
 });
 
-	$factory->define(App\Lesson::class, function (Faker\Generator $faker) {
+$factory->define(App\Lesson::class, function (Faker\Generator $faker) {
 
-	    return [
-	        'title' => $faker->sentence,
-	        'body' => $faker->paragraph,
-	    ];
-	});
+    return [
+        'title'  => $faker->sentence,
+        'body'   => $faker->paragraph,
+        'active' => $faker->boolean,
+    ];
+});
 
+$factory->define(App\Tag::class, function (Faker\Generator $faker) {
+
+    return [
+        'name'  => $faker->word,
+    ];
+});
+
+$factory->define(App\LessonTag::class, function (Faker\Generator $faker) {
+
+    return [
+        'lesson_id'  => function() {
+            return App\Lesson::inRandomOrder()->first()->id;
+        },
+        'tag_id'  => function() {
+            return App\Tag::inRandomOrder()->first()->id;
+        },
+    ];
+});

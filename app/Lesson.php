@@ -11,4 +11,14 @@ class Lesson extends Model
 	 * @var array
 	 */
     protected $fillable = ['title', 'body'];
+
+
+    /**
+     * a tag belongs to many lessons
+     * @return collection 
+     */
+    public function tags()
+    {
+ 		return $this->belongsToMany('App\Tag');   	
+    }
 }

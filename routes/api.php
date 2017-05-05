@@ -16,3 +16,8 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+Route::get('lessons/{id}/tags', 'TagsController@index');
+Route::resource('lessons', 'LessonsController');
+Route::resource('tags', 'TagsController');
